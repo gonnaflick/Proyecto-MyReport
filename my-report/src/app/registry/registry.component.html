@@ -1,36 +1,20 @@
-<div class="filter-container">
-    <select [(ngModel)]="filter.column">
-        <option value="actionId">ID de Acción</option>
-        <option value="userId">ID de Usuario</option>
-        <option value="ip">IP</option>
-        <option value="result">Resultado de la Acción</option>
-        <option value="actionType">Tipo de Acción</option>
-        <option value="date">Fecha</option>
-        <option value="time">Hora</option>
-        <option value="userStatus">Estado del Usuario</option>
-        <option value="attempts">Intentos</option>
-        <option value="verificationType">Tipo de Verificación</option>
-    </select>
-    <input type="text" [(ngModel)]="filter.value" placeholder="Buscar...">
-</div>
-
 <table>
     <thead>
         <tr>
-            <th>ID de Acción</th>
-            <th>ID de Usuario</th>
+            <th>ID de accion</th>
+            <th>ID de usuario</th>
             <th>IP</th>
-            <th>Resultado de la Acción</th>
-            <th>Tipo de Acción</th>
+            <th>Resultado de la accion</th>
+            <th>Tipo de accion</th>
             <th>Fecha</th>
             <th>Hora</th>
-            <th>Estado del Usuario</th>
+            <th>Estado del usuario</th>
             <th>Intentos</th>
-            <th>Tipo de Verificación</th>
+            <th>Tipo de verificacion</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let log of filteredLogs">
+        <tr *ngFor="let log of logs">
             <td>{{ log.actionId }}</td>
             <td>{{ log.userId }}</td>
             <td>{{ log.ip }}</td>
