@@ -8,6 +8,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserComponent } from './user/user.component';
 import { RegistryComponent } from './registry/registry.component';
 import { UsersComponent } from './users/users.component';
+import { HeaderComponent } from './header/header.component';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UsersComponent } from './users/users.component';
     SignUpComponent,
     UserComponent,
     RegistryComponent,
-    UsersComponent
+    UsersComponent,
+    HeaderComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,

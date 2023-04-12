@@ -1,1 +1,46 @@
-<p>registry works!</p>
+<div class="filter-container">
+    <select [(ngModel)]="filter.column">
+        <option value="actionId">ID de Acción</option>
+        <option value="userId">ID de Usuario</option>
+        <option value="ip">IP</option>
+        <option value="result">Resultado de la Acción</option>
+        <option value="actionType">Tipo de Acción</option>
+        <option value="date">Fecha</option>
+        <option value="time">Hora</option>
+        <option value="userStatus">Estado del Usuario</option>
+        <option value="attempts">Intentos</option>
+        <option value="verificationType">Tipo de Verificación</option>
+    </select>
+    <input type="text" [(ngModel)]="filter.value" placeholder="Buscar...">
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID de Acción</th>
+            <th>ID de Usuario</th>
+            <th>IP</th>
+            <th>Resultado de la Acción</th>
+            <th>Tipo de Acción</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado del Usuario</th>
+            <th>Intentos</th>
+            <th>Tipo de Verificación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let log of filteredLogs">
+            <td>{{ log.actionId }}</td>
+            <td>{{ log.userId }}</td>
+            <td>{{ log.ip }}</td>
+            <td>{{ log.result }}</td>
+            <td>{{ log.actionType }}</td>
+            <td>{{ log.date }}</td>
+            <td>{{ log.time }}</td>
+            <td>{{ log.userStatus }}</td>
+            <td>{{ log.attempts }}</td>
+            <td>{{ log.verificationType }}</td>
+        </tr>
+    </tbody>
+</table>
