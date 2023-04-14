@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="search-bar">
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Buscar por valor...">
+            <input type="button" value="Modificar y exportar">
+            <input type="button" value="Exportar como PDF">
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID de accion</th>
+                <th>ID de usuario</th>
+                <th>IP</th>
+                <th>Resultado de la accion</th>
+                <th>Tipo de accion</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado del usuario</th>
+                <th>Tipo de verificacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logs | filter:searchText">
+                <td>{{ log.actionId }}</td>
+                <td>{{ log.userId }}</td>
+                <td>{{ log.ip }}</td>
+                <td>{{ log.result }}</td>
+                <td>{{ log.actionType }}</td>
+                <td>{{ log.date }}</td>
+                <td>{{ log.time }}</td>
+                <td>{{ log.userStatus }}</td>
+                <td>{{ log.verificationType }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

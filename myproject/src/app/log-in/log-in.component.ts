@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-log-in',
@@ -8,10 +8,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class LogInComponent implements OnInit {
+  constructor(
+    private toast: NgToastService
+  ) { }
 
-  constructor(private toastr: ToastrService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
     const emailButton = document.getElementById("email-button") as HTMLInputElement;
     const usernameButton = document.getElementById("username-button") as HTMLInputElement;
     const emailForm = document.getElementById("email-form") as HTMLElement;
@@ -43,8 +44,37 @@ export class LogInComponent implements OnInit {
       });
     });
   }
-  a() {
-    this.toastr.success('Hello world!');
+
+  login() {
+
+  }
+
+  showSuccess() {
+    this.toast.success({ detail: "SUCCESS", summary: 'Has iniciado sesión exitosamente en tu cuenta.', duration: 5000 });
+  }
+
+  showError() {
+    this.toast.error({ detail: "ERROR", summary: 'Lo sentimos, no hemos encontrado ningún registro de un usuario con esa información. Por favor, revise si ha ingresado el nombre de usuario correcto o regístrese si aún no tiene una cuenta.', sticky: true });
+  }
+
+  showInfo() {
+    this.toast.info({ detail: "INFO", summary: 'Para acceder a tu cuenta, puedes optar por iniciar sesión con tu correo electrónico o tu nombre de usuario.', sticky: true });
+  }
+
+  showInfoEmail() {
+    this.toast.info({ detail: "INFO", summary: 'Has elegido iniciar sesión con tu correo electronico.', position: 'tr', sticky: true });
+  }
+
+  showInfoUsername() {
+    this.toast.info({ detail: "INFO", summary: 'Has elegido iniciar sesión con tu nombre de usuario.', position: 'tr', sticky: true });
+  }
+
+  showWarnEmail() {
+    this.toast.warning({ detail: "WARN", summary: 'Por favor, compruebe si su correo electrónico y contraseña son correctos', duration: 5000 });
+  }
+
+  showWarnUsername() {
+    this.toast.warning({ detail: "WARN", summary: 'Por favor, compruebe si su nombre de usuario y contraseña son correctos', duration: 5000 });
   }
 }
 

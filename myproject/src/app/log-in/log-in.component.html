@@ -6,8 +6,8 @@
     <div class="form-box">
         <h2>Puedes iniciar sesion utilizando:</h2>
         <div class="login-option-buttons">
-            <input type="button" class="active" value="Correo electrónico" id="email-button">
-            <input type="button" value="Nombre de usuario" id="username-button">
+            <input type="button" onclick="showInfoEmail()" class="active" value="Correo electrónico" id="email-button">
+            <input type="button" onclick="showInfoUsername()" value="Nombre de usuario" id="username-button">
         </div>
         <div class="login-forms">
             <div class="email-login active-form" id="email-form">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="login-end">
-            <input type="submit" onclick="a()" value="Iniciar sesión"><br />
+            <input type="submit" onclick="login()" value="Iniciar sesión"><br />
         </div>
     </div>
     <div class="sign-up">
