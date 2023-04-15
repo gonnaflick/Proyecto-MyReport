@@ -1,7 +1,7 @@
 <div class="container">
     <div class="search-container">
         <mat-form-field appearance="fill">
-            <input matInput placeholder="search" autocomplete="off" (keyup)="filterData($event)">
+            <input matInput placeholder="Filtro de busqueda..." autocomplete="on" (keyup)="filterData($event)">
         </mat-form-field>
     </div>
     <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
@@ -13,6 +13,11 @@
         <ng-container matColumnDef="userId">
             <th mat-header-cell mat-sort-header *matHeaderCellDef> ID de usuario </th>
             <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="username">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Nombre de usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
         </ng-container>
 
         <ng-container matColumnDef="ip">
@@ -44,13 +49,8 @@
             <th mat-header-cell *matHeaderCellDef> Tipo de verificacion </th>
             <td mat-cell *matCellDef="let element"> {{element.verificationType}} </td>
         </ng-container>
-
-
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-
     </table>
     <mat-paginator #paginator [pageSize]="25" [pageSizeOptions]="[2,5, 10, 25, 100]">
     </mat-paginator>

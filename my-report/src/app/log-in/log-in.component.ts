@@ -1,50 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { NotifierService } from '../notifier.service';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-
 export class LogInComponent implements OnInit {
 
-  constructor(private toastr: ToastrService) { }
+  emailInput?: HTMLInputElement;
+  emailPassword?: HTMLInputElement;
+  usernameInput?: HTMLInputElement;
+  usernamePassword?: HTMLInputElement;
+
+  constructor(private toast: NotifierService) { }
+
+  ShowInfoEmail() {
+    this.toast.ShowInfo("Nombre de usuario", "Has elegido iniciar sesión con tu nombre de usuario.");
+  }
+
+  ShowInfoUsername() {
+    this.toast.ShowInfo("Correo electronico", "Has elegido iniciar sesión con tu correo electronico.");
+  }
 
   ngOnInit(): void {
-    const emailButton = document.getElementById("email-button") as HTMLInputElement;
-    const usernameButton = document.getElementById("username-button") as HTMLInputElement;
-    const emailForm = document.getElementById("email-form") as HTMLElement;
-    const usernameForm = document.getElementById("username-form") as HTMLElement;
-    const emailInput = emailForm.querySelector('input[type="email"]') as HTMLInputElement;
-    const emailPassword = emailForm.querySelector('input[type="password"]') as HTMLInputElement;
-    const usernameInput = usernameForm.querySelector('input[type="text"]') as HTMLInputElement;
-    const usernamePassword = usernameForm.querySelector('input[type="password"]') as HTMLInputElement;
+    const emailButton = document.getElementById("email-button");
+    const usernameButton = document.getElementById("username-button");
+    const emailForm = document.getElementById("email-form");
+    const usernameForm = document.getElementById("username-form");
+    this.emailInput = emailForm!.querySelector('input[type="email"]') as HTMLInputElement;
+    this.emailPassword = emailForm!.querySelector('input[type="password"]') as HTMLInputElement;
+    this.usernameInput = usernameForm!.querySelector('input[type="text"]') as HTMLInputElement;
+    this.usernamePassword = usernameForm!.querySelector('input[type="password"]') as HTMLInputElement;
 
-    emailButton?.addEventListener("click", function () {
-      emailButton?.classList.add("active");
+    emailButton?.addEventListener("click", () => {
+      emailButton.classList.add("active");
       usernameButton?.classList.remove("active");
-      fadeOut(usernameForm, function () {
-        emailForm.style.display = "block";
-        fadeIn(emailForm);
-        emailInput.value = '';
-        emailPassword.value = '';
+      fadeOut(usernameForm!, () => {
+        emailForm!.style.display = "block";
+        this.emailInput!.value = '';
+        this.emailPassword!.value = '';
+        fadeIn(emailForm!);
       });
+      this.ShowInfoEmail();
     });
 
-    usernameButton?.addEventListener("click", function () {
-      usernameButton?.classList.add("active");
+    usernameButton?.addEventListener("click", () => {
+      usernameButton.classList.add("active");
       emailButton?.classList.remove("active");
-      fadeOut(emailForm, function () {
-        usernameForm.style.display = "block";
-        fadeIn(usernameForm);
-        usernameInput.value = '';
-        usernamePassword.value = '';
+      fadeOut(emailForm!, () => {
+        usernameForm!.style.display = "block";
+        this.usernameInput!.value = '';
+        this.usernamePassword!.value = '';
+        fadeIn(usernameForm!);
       });
+      this.ShowInfoUsername();
     });
-  }
-  a() {
-    this.toastr.success('Hello world!');
   }
 }
 

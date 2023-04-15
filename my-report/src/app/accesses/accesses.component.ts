@@ -11,8 +11,7 @@ import { DataService } from '../data.service';
 })
 
 export class AccessesComponent implements OnInit {
-
-  displayedColumns = ['name', 'username', 'email'];
+  displayedColumns = ['actionId', 'userId', 'username', 'ip', 'result', 'actionType', 'date', 'time', 'verificationType'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild('paginator') paginator!: MatPaginator;

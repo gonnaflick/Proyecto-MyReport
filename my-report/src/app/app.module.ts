@@ -44,12 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-top-right',
-      preventDuplicates: false,
-      progressAnimation: 'decreasing'
-    })
+    ToastrModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

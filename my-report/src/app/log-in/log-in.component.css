@@ -15,7 +15,7 @@ h2 {
 
 .login-container {
   background-color: #0d1117;
-  width: 50%;
+  width: 100%;
   border-radius: 10px;
   pointer-events: all;
 }
