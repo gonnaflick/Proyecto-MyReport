@@ -2,23 +2,26 @@ h1 {
   color: #c9d1d9;
   font-size: 25px;
   font-weight: lighter;
-  margin: 50px 0 30px;
-  text-align: center;
-}
-
-h2 {
-  color: #c9d1d9;
-  font-size: 16px;
-  font-weight: lighter;
+  margin: 50px 0 20px;
   text-align: center;
 }
 
 .login-container {
   background-color: #0d1117;
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   pointer-events: all;
+  margin: 0 auto;
+  min-width: 300px;
 }
+
+@media screen and (min-width: 320px) {
+  .login-container {
+    width: 10%;
+    min-width: 300px;
+  }
+}
+
 
 .form-box {
   border-radius: 10px;
@@ -26,6 +29,7 @@ h2 {
   padding: 20px;
   margin-bottom: 15px;
   pointer-events: all;
+  border: 1px solid #212325;
 }
 
 .login-option-buttons {
@@ -40,7 +44,7 @@ h2 {
   text-align: center;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #30363d;
+  border: 1px solid #586069;
   pointer-events: all;
 }
 
@@ -58,10 +62,6 @@ input[type="button"] {
 
 #email-button {
   border-radius: 10px 0 0 10px;
-}
-
-#username-button {
-  border-radius: 0 10px 10px 0;
 }
 
 input[type="button"]:hover {
@@ -90,14 +90,6 @@ input[type="button"].active {
   display: block;
 }
 
-.username-login {
-  display: none;
-}
-
-.username-login.active-form {
-  display: block;
-}
-
 .login-end {
   margin-top: -20px;
   text-align: center;
@@ -107,10 +99,10 @@ input[type="submit"] {
   border: none;
   border-radius: 6px;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 12px 20px;
-  margin-bottom: 20px;
+  padding: 8px;
+  margin-bottom: 10px;
   width: 100%;
   transition: background-color 0.2s ease-in-out;
 }
@@ -151,8 +143,9 @@ input[type="button"].active:hover {
 }
 
 .logo {
+  margin-top: 30px;
   text-align: center;
-  margin-bottom: -30px;
+  margin-bottom: -40px;
 }
 
 
@@ -161,31 +154,25 @@ input[type="button"].active:hover {
 }
 
 .login-forms input[type="email"],
-.login-forms input[type="text"],
 .login-forms input[type="password"] {
   background-color: #0d1117;
   border: none;
   border-radius: 3px;
   color: #c9d1d9;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 20px;
   margin-top: 10px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   transition: border-color 0.2s ease-in-out;
   width: 100%;
   border: 1px solid #0d1117;
 }
 
 .login-forms input[type="email"]:focus,
-.login-forms input[type="text"]:focus,
 .login-forms input[type="password"]:focus {
   background-color: #0d1117;
   color: #c9d1d9;
   outline: none;
   border: 1px solid #257eeb;
-}
-
-.login-forms input[type="submit"] {
-  margin-top: 20px;
 }

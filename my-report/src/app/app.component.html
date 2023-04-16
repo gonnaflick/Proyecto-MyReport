@@ -1,10 +1,8 @@
-<div style="margin-top: 100px">
-    <app-header></app-header>
-    <app-sign-out></app-sign-out>
-</div>
-<div style="width:100%;">
-    <app-log-in></app-log-in>
-    <app-sign-up></app-sign-up>
-    <app-accesses></app-accesses>
-    <app-users></app-users>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

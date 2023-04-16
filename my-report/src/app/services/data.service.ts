@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Access } from "./access/access.model";
-import { User } from "./user/user.model";
+import { Access } from "../access/access.model";
+import { User } from "../user/user.model";
 import { Observable } from "rxjs";
 
 @Injectable()

@@ -1,7 +1,6 @@
 header {
     background-color: #161b22;
     color: #fff;
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -14,6 +13,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-left: -40px;
+    margin-right: 0px;
+}
+
+@media screen and (min-width: 768px) {
+    nav {
+        margin-left: 0px;
+        margin-right: 40px;
+    }
 }
 
 nav ul {
@@ -64,4 +71,18 @@ nav a {
 
 #signup-button:hover {
     background-color: #55a5ff;
+}
+
+#signout-button {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #c9d1d9;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #c9d1d9;
+    transition: color, border-color 0.2s ease-in-out;
+}
+
+#signout-button:hover {
+    border-color: #fff;
+    color: #fff;
 }
