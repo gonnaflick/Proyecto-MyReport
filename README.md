@@ -1,2 +1,5 @@
 # Proyecto-MyReport
-Proyecto para el parcial 2 de la clase de centros de computo.
+## Proyecto segundo parcial para administracion de centros de computo
+Jesus Alejandro Jimenez Hernandez
+338906
+8HW1
