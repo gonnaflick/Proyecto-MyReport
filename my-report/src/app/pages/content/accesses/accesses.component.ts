@@ -116,7 +116,7 @@ export class AccessesComponent implements OnInit {
       'Hora',
     ];
 
-    const filteredData = this.dataSource.filteredData; // Obtener los datos filtrados
+    const filteredData = this.dataSource.filteredData;
     filteredData.forEach((item) => {
       const dataRow = [
         item.id,
