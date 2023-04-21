@@ -1,40 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.services';
 import { NotifierService } from '../../../services/notifier.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
 })
-
 export class SignUpComponent {
-  authForm!: FormGroup;
+  firstName: string = '';
+  lastName: string = '';
+  birthday: string = '';
+  email: string = '';
+  password: string = '';
+  phone: string = '';
 
-  constructor(private authService: AuthService, private toast: NotifierService, private readonly fb: FormBuilder) { }
+  constructor(
+    private authService: AuthService,
+    private toast: NotifierService,
+    private readonly router: Router
+  ) {}
 
-  onSubmit(firstName: string, lastName: string, birthday: string, email: string, password: string, phone: string) {
-    if (form.valid) {
-      // Hacer algo cuando el formulario es válido
+  onSubmit(signupForm: NgForm) {
+    if (signupForm.valid) {
+      this.authService
+        .signUp(
+          this.email,
+          this.firstName,
+          this.lastName,
+          this.birthday,
+          this.password,
+          this.phone
+        )
+        .then((result) => {
+          if (result) {
+            console.log(result);
+            this.redirectUser();
+            this.toast.ShowInfo(
+              'Cuenta creada con exito',
+              'Espere a que el administrador valide su cuenta.'
+            );
+          }
+        })
+        .catch((error) => {
+          this.toast.ShowError('Error', error);
+          console.error(error);
+        });
     } else {
-      // Mostrar un mensaje de error o hacer otra cosa si el formulario no es válido
+      this.toast.ShowInfo('Tip', 'Llene todos los puntos indicados.');
     }
-    this.authService.signUp(email, firstName, lastName, birthday, password, phone)
-      .then(result => {
-        if (result)
-          console.log(result);
-      })
-      .catch(error => {
-        this.toast.ShowError("Error", Error);
-        console.error(error);
-      });
   }
 
-  private initForm(): void {
-    this.authForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    })
+  private redirectUser(): void {
+    this.router.navigate(['/home']);
   }
 }

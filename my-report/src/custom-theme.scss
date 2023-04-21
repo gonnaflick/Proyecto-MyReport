@@ -1,0 +1,81 @@
+@import "@angular/material/theming";
+
+@include mat-core();
+
+$md-primary: (
+  50: #e5f0fd,
+  100: #bed8f9,
+  200: #92bff5,
+  300: #66a5f1,
+  400: #4691ee,
+  500: #257eeb,
+  600: #2176e9,
+  700: #1b6be5,
+  800: #1661e2,
+  900: #0d4edd,
+  A100: #ffffff,
+  A200: #d5e1ff,
+  A400: #a2bbff,
+  A700: #89a9ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-accent: (
+  50: #e3e4e4,
+  100: #b9bbbd,
+  200: #8b8d91,
+  300: #5c5f64,
+  400: #393d43,
+  500: #161b22,
+  600: #13181e,
+  700: #101419,
+  800: #0c1014,
+  900: #06080c,
+  A100: #5184ff,
+  A200: #1e60ff,
+  A400: #0044ea,
+  A700: #003dd0,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$github-theme-primary: mat-palette($md-primary);
+$github-theme-accent: mat-palette($md-accent);
+$github-theme-warn: mat-palette($mat-red);
+
+$github-theme: mat-dark-theme(
+  $github-theme-primary,
+  $github-theme-accent,
+  $github-theme-warn
+);
+
+@include angular-material-theme($github-theme);

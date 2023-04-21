@@ -1,28 +1,38 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Access } from "../access/access.model";
-import { User } from "../user/user.model";
-import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from '@env/environment';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { from } from 'rxjs';
 
 @Injectable()
 export class DataService {
-    firebase_url = "https://console.firebase.google.com/project/myreport-fb7b9/database/myreport-fb7b9-default-rtdb/data/~2F";
+  private supabase: SupabaseClient;
 
-    constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.supabase = createClient(
+      environment.supabase.url,
+      environment.supabase.publicKey
+    );
+  }
 
-    loadAccess(): Observable<Access> {
-        return this.httpClient.get<Access>(this.firebase_url);
-    }
+  getLog(): Observable<any[]> {
+    return from(this.supabase.rpc('getlog').then((response) => response.data));
+  }
 
-    saveAccess(Access: Access) {
-        this.httpClient.post(this.firebase_url, Access);
-    }
+  getUser(): Observable<any[]> {
+    return from(this.supabase.rpc('getuser').then((response) => response.data));
+  }
 
-    loadUser(): Observable<User> {
-        return this.httpClient.get<User>(this.firebase_url);
-    }
+  authenticateUser(user_id: string) {
+    return this.supabase.rpc('authenticate', { user_id });
+  }
 
-    saveUser(User: User) {
-        this.httpClient.post(this.firebase_url, User);
-    }
+  deauthenticateUser(user_id: string) {
+    return this.supabase.rpc('deauthenticate', { user_id });
+  }
+
+  deauthenticateByDefault(email: string) {
+    return this.supabase.rpc('deauthenticateByDefault', { email });
+  }
 }

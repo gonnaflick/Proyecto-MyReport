@@ -7,9 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccessesComponent } from './accesses/accesses.component';
-import { UsersComponent } from './users/users.component';
-import { SignOutComponent } from './sign-out/sign-out.component';
+import { UsersComponent } from './pages/content/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,16 +18,15 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { LogInModule } from './pages/auth/log-in/log-in.module';
 import { SignUpModule } from './pages/auth/sign-up/sign-up.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { AccessesComponent } from './pages/content/accesses/accesses.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UsersComponent,
-    AccessesComponent,
-    UsersComponent,
-    SignOutComponent
-  ],
+  declarations: [AppComponent, UsersComponent, AccessesComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -46,9 +43,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     LogInModule,
     SignUpModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatTableExporterModule,
+    ToastrModule.forRoot(),
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

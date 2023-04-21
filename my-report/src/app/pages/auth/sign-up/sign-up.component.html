@@ -1,24 +1,69 @@
 <div class="signup-container">
   <div class="logo">
-    <img src="../../assets/login-icon.png" alt="Login logo" width="50">
+    <img src="../../assets/login-icon.png" alt="Login logo" width="50" />
   </div>
   <h1>Crea tu cuenta MyReport</h1>
-  <form class="form-box" [formGroup]="authForm"
-    (ngSubmit)="onSubmit(name.value, lastname.value, birthday.value, email.value, password.value, phone.value)">
+  <div class="form-box">
     <div class="box">
-      <label>Nombre</label>
-      <input type="text" minlength="1" maxlength="50" required #name><br />
-      <label>Apellido</label>
-      <input type="text" minlength="1" maxlength="50" required #lastname><br />
-      <label>Fecha de nacimiento</label>
-      <input type="date" required #birthday><br />
-      <label>Celular</label>
-      <input type="tel" required #phone><br />
-      <label>Correo</label>
-      <input type="email" required #email><br />
-      <label>Contraseña</label>
-      <input type="password" required #password><br />
-      <input type="submit" value="Crear cuenta"><br />
+      <form #signUpForm="ngForm">
+        <label>Nombre</label>
+        <input
+          type="text"
+          minlength="1"
+          maxlength="50"
+          required
+          [(ngModel)]="firstName"
+          name="firstName"
+          #firstNameInput="ngModel"
+        /><br />
+        <label>Apellido</label>
+        <input
+          type="text"
+          minlength="1"
+          maxlength="50"
+          required
+          [(ngModel)]="lastName"
+          name="lastName"
+          #lastNameInput="ngModel"
+        /><br />
+        <label>Fecha de nacimiento</label>
+        <input
+          type="date"
+          required
+          [(ngModel)]="birthday"
+          name="birthday"
+          #birthdayInput="ngModel"
+        /><br />
+        <label>Celular</label>
+        <input
+          type="tel"
+          required
+          [(ngModel)]="phone"
+          name="phone"
+          #phoneInput="ngModel"
+        /><br />
+        <label>Correo</label>
+        <input
+          type="email"
+          required
+          [(ngModel)]="email"
+          name="email"
+          #emailInput="ngModel"
+        /><br />
+        <label>Contraseña</label>
+        <input
+          type="password"
+          required
+          [(ngModel)]="password"
+          name="password"
+          #passwordInput="ngModel"
+        /><br />
+        <input
+          type="submit"
+          (click)="onSubmit(signUpForm)"
+          value="Crear cuenta"
+        /><br />
+      </form>
     </div>
-  </form>
+  </div>
 </div>

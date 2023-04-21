@@ -22,7 +22,6 @@ h1 {
   }
 }
 
-
 .form-box {
   border-radius: 10px;
   background-color: #161b22;
@@ -30,14 +29,6 @@ h1 {
   margin-bottom: 15px;
   pointer-events: all;
   border: 1px solid #212325;
-}
-
-.login-option-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-  width: 100%;
-  pointer-events: all;
 }
 
 .sign-up {
@@ -48,46 +39,17 @@ h1 {
   pointer-events: all;
 }
 
-input[type="button"] {
-  border: none;
-  background-color: #30363d;
-  color: #757a80;
-  font-size: 12px;
-  font-weight: 600;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  transition: color, background-color 0.2s ease-in-out;
-  width: 100%;
-}
-
-#email-button {
-  border-radius: 10px 0 0 10px;
-}
-
-input[type="button"]:hover {
-  background-color: #747679;
-  color: #fff;
-}
-
-input[type="button"].active {
-  color: #c9d1d9;
-}
-
-.login-forms {
+.form-box {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 }
 
-.login-forms label {
+.form-box label {
   color: #8b949e;
   font-size: 14px;
   font-weight: normal;
   margin-bottom: 10px;
-}
-
-.email-login {
-  display: block;
 }
 
 .login-end {
@@ -148,20 +110,18 @@ input[type="button"].active:hover {
   margin-bottom: -40px;
 }
 
-
-.login-forms label {
+.form-box label {
   color: #c9d1d9;
 }
 
-.login-forms input[type="email"],
-.login-forms input[type="password"] {
+.form-box input[type="email"],
+.form-box input[type="password"] {
   background-color: #0d1117;
   border: none;
   border-radius: 3px;
   color: #c9d1d9;
   font-size: 14px;
   margin-bottom: 20px;
-  margin-top: 10px;
   padding-top: 8px;
   padding-bottom: 8px;
   transition: border-color 0.2s ease-in-out;
@@ -169,8 +129,8 @@ input[type="button"].active:hover {
   border: 1px solid #0d1117;
 }
 
-.login-forms input[type="email"]:focus,
-.login-forms input[type="password"]:focus {
+.form-box input[type="email"]:focus,
+.form-box input[type="password"]:focus {
   background-color: #0d1117;
   color: #c9d1d9;
   outline: none;

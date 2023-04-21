@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div *ngIf="loggedIn !== null">
+  <div *ngIf="loggedIn; else signedOut">
+    <div class="container">
+      <h1 style="font-size: 30px; font-weight: lighter">
+        ¡Bienvenido {{ current_user }}!
+      </h1>
+      <div class="button-container">
+        <h2>Selecciona un registro</h2>
+        <button [routerLink]="['/users']" id="user-btn">
+          <img src="../../../assets/user.png" />Usuarios
+        </button>
+        <button [routerLink]="['/accesses']" id="access-btn">
+          <img src="../../../assets/access.png" />Acceso
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #signedOut>
+    <section class="welcome-section">
+      <div class="content">
+        <h1>Bienvenido</h1>
+        <p>Este es un proyecto para administracion de centros de computo.</p>
+        <button class="btn" [routerLink]="['/sign-up']">Comenzar</button>
+      </div>
+    </section>
+  </ng-template>
+</div>

@@ -1,15 +1,42 @@
 <header>
-    <nav>
-        <ul>
-            <li><a [routerLink]="['/home']"><img src="./assets/login-icon.png" width="30"></a></li>
-            <li><a [routerLink]="['/home']" style="font-weight: bold;">MyReport</a></li>
-        </ul>
-        <ul>
-            <div class="button-box">
-                <li><input type="button" id="login-button" value="Iniciar sesión" [routerLink]="['/login']"></li>
-                <li><input type="button" id="signup-button" value="Registrarse" [routerLink]="['/sign-up']"></li>
-                <li><input type="button" id="signout-button" value="Cerrar sesión" [routerLink]="['/home']"></li>
-            </div>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/home']"
+          ><img src="./assets/login-icon.png" width="30"
+        /></a>
+      </li>
+      <li>
+        <a [routerLink]="['/home']" style="font-weight: bold">MyReport</a>
+      </li>
+    </ul>
+    <ul>
+      <div class="button-box" *ngIf="loggedIn !== null">
+        <li *ngIf="!loggedIn">
+          <input
+            type="button"
+            id="login-button"
+            value="Iniciar sesión"
+            [routerLink]="['/login']"
+          />
+        </li>
+        <li *ngIf="!loggedIn">
+          <input
+            type="button"
+            id="signup-button"
+            value="Registrarse"
+            [routerLink]="['/sign-up']"
+          />
+        </li>
+        <li *ngIf="loggedIn">
+          <input
+            type="button"
+            id="signout-button"
+            value="Cerrar sesión"
+            (click)="signOut()"
+          />
+        </li>
+      </div>
+    </ul>
+  </nav>
 </header>
